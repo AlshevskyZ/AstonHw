@@ -49,57 +49,19 @@ public class Main {
                         break;
                     case "10":
                         int[] arrayTask10 = {1, 1, 0, 0, 1, 0, 1, 1, 0, 0};
-                        for (int i = 0; i < arrayTask10.length; i++) {
-                            if (arrayTask10[i] == 0) {
-                                arrayTask10[i] = 1;
-                            } else
-                                arrayTask10[i] = 0;
-                        }
-                        for (int element : arrayTask10) {
-                            System.out.print(element+ " ");
-                        }
-                        System.out.print("\n");
+                        changeElement(arrayTask10);
                         break;
                     case "11":
-                        int[] arrayTask11;
-                        arrayTask11 = new int[100];
-                        for (int i = 0; i < arrayTask11.length; i++) {
-                            arrayTask11[i] = i + 1;
-                        }
+                        int[] arrayTask11 = new int[100];
+                        fillArray(arrayTask11);
                         break;
                     case "12":
                         int[] arrayTask12 = {1, 5, 3, 2, 11, 4, 5, 2, 4, 8, 9, 1};
-                        for (int i = 0; i < arrayTask12.length; i++) {
-                            arrayTask12[i] = arrayTask12[i] < 6 ? arrayTask12[i] * 2 : arrayTask12[i];
-                        }
-                        for (int element : arrayTask12) {
-                            System.out.print(element+ " ");
-                        }
-                        System.out.print("\n");
+                        modifyArray(arrayTask12);
                         break;
                     case "13":
                         int size = 5;
-                        int[][] arrayTask13 = new int[size][size];
-                        for (int i = 0; i < size; i++) {//проходим по главной диагонали сверху вниз
-                            for (int j = 0; j < size; j++) {
-                                if (i == j) {
-                                    arrayTask13[i][j] = 1;
-                                }
-                            }
-                        }
-                        for (int i = size-1; i >=0; i--) {//проходим по побочной диагонали снизу вверх
-                            for (int j = 0; j < size; j++) {
-                                if (i + j==size-1) {
-                                    arrayTask13[i][j] = 1;
-                                }
-                            }
-                        }
-                        for (int i = 0; i < size; i++) {
-                            for (int j = 0; j < size; j++) {
-                                System.out.print(arrayTask13[i][j] + " ");
-                            }
-                            System.out.println();
-                        }
+                        fillMatrix(size);
                         break;
                     case "14":
                         for (int element : createArray(10, 5)) {
@@ -113,14 +75,14 @@ public class Main {
             }
         }
     }
-    private static void printThreeWords() {
+    private static void printThreeWords() {// 1
         String[] fruits  = {"Orange","Apple","Banana"};
         for( String fruit : fruits)
         {
             System.out.println(fruit);
         }
     }
-    public static void checkSumSign() {
+    public static void checkSumSign() {//2
         int a = 10;
         int b = -5;
         if (a + b >= 0) {
@@ -128,7 +90,7 @@ public class Main {
         } else
             System.out.println("Сумма отрицательная");
     }
-    public static void printColor() {
+    public static void printColor() {//3
         int value = 101;
         if (value <= 0) {
             System.out.println("Красный");
@@ -137,7 +99,7 @@ public class Main {
         } else
             System.out.println("Зеленый");
     }
-    public static void compareNumbers() {
+    public static void compareNumbers() {//4
         int a = 10,b = 5;
         if (a >= b) {
             System.out.println("a >= b");
@@ -145,30 +107,75 @@ public class Main {
             System.out.println("a < b");
         }
     }
-    public static boolean checkSumRange(int a, int b) {
+    public static boolean checkSumRange(int a, int b) {//5
         int sum = a + b;
         return sum >= 10 && sum <= 20;
     }
-    public static void checkNumberSign(int number) {
+    public static void checkNumberSign(int number) {//6
         if (number >= 0) {
             System.out.println("Число положительное");
         } else
             System.out.println("Число отрицательное");
     }
-    public static boolean isNegativeNumber(int number) {
+    public static boolean isNegativeNumber(int number) {//7
         return number < 0;
     }
-    public static void repeatString(String str, int n) {
+    public static void repeatString(String str, int n) {//8
         for (int i = 0; i < n; i++) {
             System.out.println(str);
         }
     }
-    public static boolean isLeapYear(int year) {
+    public static boolean isLeapYear(int year) {//9
         return (year % 4 == 0) && ((year % 100 != 0) || (year % 400 == 0));
     }
-    public static int[] createArray(int len, int initialValue) {
+    public static void changeElement(int[] array) {//10
+        for (int i = 0; i < array.length; i++) {
+            array[i] = 1 - array[i];
+        }
+        for (int element : array) {
+            System.out.print(element + " ");
+        }
+        System.out.println();
+    }
+    public static void fillArray(int[] array) {//11
+        for (int i = 0; i < array.length; i++) {
+            array[i] = i + 1;
+        }
+    }
+    public static void modifyArray(int[] array) {//12
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array[i] < 6 ? array[i] * 2 : array[i];
+        }
+        for (int element : array) {
+            System.out.print(element+ " ");
+        }
+        System.out.print("\n");
+    }
+    public static void fillMatrix(int size) {//13
+        int[][] arrayTask13 = new int[size][size];
+        for (int i = 0; i < size; i++) {//проходим по главной диагонали сверху вниз
+            for (int j = 0; j < size; j++) {
+                if (i == j) {
+                    arrayTask13[i][j] = 1;
+                }
+            }
+        }
+        for (int i = size-1; i >=0; i--) {//проходим по побочной диагонали снизу вверх
+            for (int j = 0; j < size; j++) {
+                if (i + j==size-1) {
+                    arrayTask13[i][j] = 1;
+                }
+            }
+        }
+        for (int i = 0; i < size; i++) {
+            for (int j = 0; j < size; j++) {
+                System.out.print(arrayTask13[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+    public static int[] createArray(int len, int initialValue) {//14
         int[] array = new int[len];
-
         for (int i = 0; i < array.length; i++) {
             array[i] = initialValue;
         }

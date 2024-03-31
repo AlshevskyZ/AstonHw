@@ -7,10 +7,9 @@ public class Main {
             System.out.print("Введите номер задания(1-14) или stop для выхода:");
             Scanner scan = new Scanner(System.in);
             var taskId = scan.nextLine();
-            if(taskId.equals("stop"))
-                {
-                    break;
-                }
+            if(taskId.equals("stop")) {
+                break;
+            }
             else
                 switch (taskId)
                 {
@@ -29,7 +28,7 @@ public class Main {
                     case "5":
                         int a = 5;
                         int b = 7;
-                        System.out.println(checkSumRange(a, b));
+                        System.out.println(checkSumRange(a,b));
                         break;
                     case "6":
                         checkNumberSign(5); // "Число положительное"
@@ -65,7 +64,7 @@ public class Main {
                         break;
                     case "14":
                         for (int element : createArray(10, 5)) {
-                            System.out.print(element+ " ");
+                            System.out.print(element + " ");
                         }
                         System.out.print("\n");
                         break;
@@ -87,23 +86,29 @@ public class Main {
         int b = -5;
         if (a + b >= 0) {
             System.out.println("Сумма положительная");
-        } else
+        }
+        else {
             System.out.println("Сумма отрицательная");
+        }
     }
     public static void printColor() {//3
         int value = 101;
         if (value <= 0) {
             System.out.println("Красный");
-        } else if (value >0 && value <= 100) {
+        }
+        else if (value >0 && value <= 100) {
             System.out.println("Желтый");
-        } else
+        }
+        else {
             System.out.println("Зеленый");
+        }
     }
     public static void compareNumbers() {//4
         int a = 10,b = 5;
         if (a >= b) {
             System.out.println("a >= b");
-        } else {
+        }
+        else {
             System.out.println("a < b");
         }
     }
@@ -114,8 +119,10 @@ public class Main {
     public static void checkNumberSign(int number) {//6
         if (number >= 0) {
             System.out.println("Число положительное");
-        } else
+        }
+        else {
             System.out.println("Число отрицательное");
+        }
     }
     public static boolean isNegativeNumber(int number) {//7
         return number < 0;

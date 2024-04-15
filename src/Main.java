@@ -7,7 +7,7 @@ public class Main {
         Set<String> uniqueWords = new HashSet<>(List.of(months));
         System.out.println("Уникальные слова:");
         for (String word : uniqueWords) {
-            System.out.print(word + "\n");
+            System.out.print(word + " \n ");
         }
         Map<String, Integer> wordCounts = new HashMap<>();
         for (String word : months) {

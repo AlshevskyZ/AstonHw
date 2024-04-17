@@ -19,7 +19,7 @@ public class FactorialTest {
         assertEquals(120, Main.factorial(5));
     }
     @ParameterizedTest
-    @ValueSource(ints = {0, 1, 5, 10}) // Значения для параметризации
+    @ValueSource(ints = {0, 1, 5, 10}) 
     public void testFactorialValues(int n) {
         long expected = 1;
         for (int i = 1; i <= n; i++) {

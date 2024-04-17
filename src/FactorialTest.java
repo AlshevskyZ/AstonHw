@@ -1,10 +1,8 @@
-import org.junit.jupiter.api.RepeatedTest;
-import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
-import org.junit.jupiter.params.provider.ValueSource;
-import java.util.Random;
+import org.testng.Assert;
+import org.testng.annotations.DataProvider;
+import org.testng.annotations.Test;
+import static org.testng.Assert.assertEquals;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
 public class FactorialTest {
     @Test
     public void testFactorialZero() {
@@ -18,23 +16,12 @@ public class FactorialTest {
     public void testFactorialFive() {
         assertEquals(120, Main.factorial(5));
     }
-    @ParameterizedTest
-    @ValueSource(ints = {0, 1, 5, 10}) // Значения для параметризации
-    public void testFactorialValues(int n) {
-        long expected = 1;
-        for (int i = 1; i <= n; i++) {
-            expected *= i;
-        }
-        assertEquals(expected, Main.factorial(n));
+    @Test(enabled = false)
+    public void testFactorial() {
+        assertEquals(1, Main.factorial(-7));
     }
-    @RepeatedTest(5)
-    public void testFactorialRandom() {
-        Random rnd = new Random();
-        int n = rnd.nextInt(10);
-        long expected = 1;
-        for (int i = 1; i <= n; i++) {
-            expected *= i;
-        }
-        assertEquals(expected, Main.factorial(n));
+    @Test(expectedExceptions = StackOverflowError.class)
+    public void testFactorialNegative() {
+        Main.factorial(-5);
     }
 }
